@@ -20,27 +20,29 @@ export class CreateEventComponent implements OnInit {
     constructor(private router: Router,
         private eventService: EventService) { }
 
-    ngOnInit(){
+    ngOnInit() {
         this.event = {
-            id: 999,
-            name: 'ng-conf 2037',
-            date: new Date('5/4/2037'),
-            time: '9:00 am',
-            price: 759.00,
-            imageUrl: '/assets/images/ng-conf.png',
+            id: 0,
+            name: '',
+            date: new Date(),
+            time: '',
+            price: 0.00,
+            imageUrl: '',
             location: {
-                address: 'The Palatial America Hotel',
-                city: 'Salt Lake City',
-                country: 'USA'
+                address: '',
+                city: '',
+                country: ''
             },
-            sessions: [ ]
+            sessions: []
         };
     }
 
-    saveEvent(formValues){
-        this.eventService.saveEvent(formValues);
-        this.isDirty = false;
-        this.router.navigate(['/events']);
+    saveEvent(formValues) {
+        debugger;
+        this.eventService.saveEvent(formValues).subscribe(() => {
+            this.isDirty = false;
+            this.router.navigate(['/events']);
+        });
     }
 
     cancel() {

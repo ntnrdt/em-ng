@@ -19,8 +19,8 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <a href="">Angular Connect</a>
+            <li *ngFor="let event of events">
+              <a href="/events/{{event.id}}">{{event.name | uppercase}}</a>
             </li>
           </ul>
         </li>
