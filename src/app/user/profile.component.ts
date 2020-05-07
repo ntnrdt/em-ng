@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName
-    })
+    });
   }
 
   saveProfile(formValues) {
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
   logout() {
     this.authService.logout()
       .subscribe(() => {
-        this.router.navigate(['/user/login'])
+        this.router.navigate(['/user/login']);
       });
   }
 

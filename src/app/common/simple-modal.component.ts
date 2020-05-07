@@ -2,7 +2,7 @@ import { Component, Input, ElementRef, ViewChild, Inject } from '@angular/core';
 import { JQ_TOKEN } from './jQuery.service';
 
 @Component({
-    selector: 'simple-modal',
+    selector: 'app-simple-modal',
     template: `
     <div id="{{elementId}}" #modalcontainer class="modal fade" tabindex="-1">
         <div class="modal-dialog">
@@ -37,7 +37,8 @@ export class SimpleModalComponent {
     }
 
     closeModal() {
-        if (this.closeOnBodyClick.toLocaleLowerCase() === "true")
+        if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
             this.$(this.containerEl.nativeElement).modal('hide');
+        }
     }
 }

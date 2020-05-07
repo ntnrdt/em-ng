@@ -3,7 +3,7 @@ import { FormControl, Validators, FormGroup, CheckboxControlValueAccessor } from
 import { ISession, restrictedWords } from '../shared';
 
 @Component({
-    selector: 'create-session',
+    selector: 'app-create-session',
     templateUrl: './create-session.component.html',
     styles: [`
         .error em { float: right; color: #E05C65; padding-left: 10px; }
@@ -37,12 +37,12 @@ export class CreateSessionComponent implements OnInit {
             duration: this.duration,
             level: this.level,
             abstract: this.abstract
-        })
+        });
     }
 
     saveSession(formValues) {
 
-        let session: ISession = {
+        const session: ISession = {
             id: undefined,
             name: formValues.name,
             presenter: formValues.presenter,
@@ -55,7 +55,7 @@ export class CreateSessionComponent implements OnInit {
         this.saveNewSession.emit(session);
     }
 
-    cancel(){
+    cancel() {
         this.cancelAddSession.emit();
     }
 }

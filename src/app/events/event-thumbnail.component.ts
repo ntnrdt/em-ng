@@ -1,9 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { Component, Input } from '@angular/core';
 import { IEvent } from './shared';
-//import { EventEmitter } from 'protractor';
 
 @Component({
-    selector: 'event-thumbnail',
+    selector: 'app-event-thumbnail',
     template: `
     <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
         <h2>{{event?.name | uppercase}}</h2>
@@ -34,16 +33,17 @@ import { IEvent } from './shared';
 })
 
 export class EventThumbnailComponent {
-    @Input() event: IEvent
+    @Input() event: IEvent;
 
     getStartTimeClass() {
         const isEarlyStart = this.event && this.event.time === '8:00 am';
         return { green: isEarlyStart, bold: isEarlyStart };
     }
 
-    getStartTimeStyle() : any {
-        if (this.event && this.event.time === '8:00 am')
-            return { color: '#003300', 'font-weight': 'bold' }
+    getStartTimeStyle(): any {
+        if (this.event && this.event.time === '8:00 am') {
+            return { color: '#003300', 'font-weight': 'bold' };
+        }
 
         return {};
     }

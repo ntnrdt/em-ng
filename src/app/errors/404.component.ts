@@ -12,6 +12,6 @@ import { Component } from '@angular/core';
         }
     `]
 })
-export class Error404Component{
+export class Error404Component {
 
 }

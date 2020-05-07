@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../user/auth.service';
 import { ISession, IEvent } from '../events/shared/event.model';
 import { EventService } from '../events/shared/event.service';
 
 @Component({
-    selector: 'nav-bar',
+    selector: 'app-nav-bar',
     templateUrl: './navbar.component.html',
     styles: [`
         .nav.navbar-nav {font-size: 15px;}
@@ -14,8 +14,8 @@ import { EventService } from '../events/shared/event.service';
     `]
 })
 
-export class NavBarComponent {
-    searchTerm: string = "";
+export class NavBarComponent implements OnInit {
+    searchTerm = '';
     foundSessions: ISession[];
     events: IEvent[];
 

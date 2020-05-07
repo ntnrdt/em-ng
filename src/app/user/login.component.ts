@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
     templateUrl: './login.component.html',
     styles: [`
         em {
-            font-style: italic;   
+            font-style: italic;
             color: red;
             float: right;
         }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'collapsible-well',
+    selector: 'app-collapsible-well',
     template: `
     <div (click)="toggleContent()" class="well pointable">
         <h4>
@@ -10,11 +10,11 @@ import { Component, Input } from '@angular/core';
         <ng-content *ngIf="visible" select="[well-body]"></ng-content>
     </div>`
 })
-export class CollapsibleWellComponent{
+export class CollapsibleWellComponent {
     @Input() title: string;
-    visible: boolean = true;
+    visible = true;
 
-    toggleContent(){
+    toggleContent() {
         this.visible = !this.visible;
     }
 }

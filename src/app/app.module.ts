@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 
 import {
   EventListComponent,
@@ -14,21 +14,21 @@ import {
   DurationPipe,
   UpvoteComponent,
   VoterService,
-  Locationvalidator,
+  LocationvalidatorDirective,
   EventResolver
 } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
-import { appRoutes } from './routes'
+import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
-
+declare let window: any;
+const toastr: Toastr = window.toastr;
+const jQuery = window.$;
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ let jQuery = window['$'];
     DurationPipe,
     ModalTriggerDirective,
     UpvoteComponent,
-    Locationvalidator,
+    LocationvalidatorDirective,
     Error404Component
   ],
   imports: [
@@ -73,8 +73,9 @@ let jQuery = window['$'];
 export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
-  if (component.isDirty)
+  if (component.isDirty) {
     return window.confirm('You have not save this event, do you really want  to cancel?');
+  }
 
   return true;
 }

@@ -15,10 +15,10 @@ import { EventService, IEvent } from './shared';
 })
 export class CreateEventComponent implements OnInit {
     event: IEvent;
-    isDirty: boolean = true;
+    isDirty = true;
 
     constructor(private router: Router,
-        private eventService: EventService) { }
+                private eventService: EventService) { }
 
     ngOnInit() {
         this.event = {
@@ -38,7 +38,7 @@ export class CreateEventComponent implements OnInit {
     }
 
     saveEvent(formValues) {
-        debugger;
+
         this.eventService.saveEvent(formValues).subscribe(() => {
             this.isDirty = false;
             this.router.navigate(['/events']);
